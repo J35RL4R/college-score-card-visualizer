@@ -12,7 +12,6 @@ if(objPass.development.password != process.env.DB_password){
   objPass.development.password += process.env.DB_password;
 }
 
-
 fs.writeFile("config/config.json", JSON.stringify(objPass), function(err, res){
   if (err) throw err;
 });
