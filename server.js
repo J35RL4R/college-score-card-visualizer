@@ -8,10 +8,14 @@ fs = require("fs");
 require('dotenv').config();
 objPass = JSON.parse(fs.readFileSync("config/config.json").toString());
 
-if (objPass.development.password == ""){
-  objPass.development.password === process.env.DB_PASSW;
+if(objPass.development.password != process.env.DB_password){
+  objPass.development.password += process.env.DB_password;
 }
-fs.writeFile("config.json", JSON.stringify(objPass));
+
+
+fs.writeFile("config/config.json", JSON.stringify(objPass), function(err, res){
+  if (err) throw err;
+});
 
 
 // Setting up port and requiring models for syncing
