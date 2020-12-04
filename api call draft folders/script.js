@@ -29,4 +29,4 @@ $(function () {
   }
 });
 
-//https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=rowan%20university&fields=latest&api_key=hDvhnFr1dwbR1ItiqY6TL9Epf3Isbcd1QHHZq9Sb
+//https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=rowan%20university&fields=id,school.name,school.locale,location.lat,location.lon,school.school_url,latest.programs.cip_4_digit,latest.cost.avg_net_price.overall,latest.completion.completion_rate_4yr_200nt_pooled,latest.aid.median_debt.completers.overall&api_key=hDvhnFr1dwbR1ItiqY6TL9Epf3Isbcd1QHHZq9Sb
