@@ -4,6 +4,16 @@ var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
+fs = require("fs");
+require('dotenv').config();
+objPass = JSON.parse(fs.readFileSync("config/config.json").toString());
+
+if (objPass.development.password == ""){
+  objPass.development.password === process.env.DB_PASSW;
+}
+fs.writeFile("config.json", JSON.stringify(objPass));
+
+
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
