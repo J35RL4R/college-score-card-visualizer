@@ -1,7 +1,8 @@
-{
+require("dotenv").config();
+module.exports = {
     "development": {
         "username": "root",
-        "password": "",
+        "password": process.env.DB_password,
         "database": "passport_demo",
         "host": "127.0.0.1",
         "dialect": "mysql"
