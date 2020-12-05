@@ -1,0 +1,13 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.jumbotron {
+  background-image: url("backgroundblue2.jpg");
+  background-size: cover;
+}
+
+body {
+  background-color: #EDF5FC;
+}
