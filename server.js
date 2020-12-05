@@ -12,7 +12,6 @@ if(objPass.development.password != process.env.DB_password){
   objPass.development.password += process.env.DB_password;
 }
 
-
 fs.writeFile("config/config.json", JSON.stringify(objPass), function(err, res){
   if (err) throw err;
 });
@@ -37,7 +36,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
