@@ -32,8 +32,7 @@ module.exports = function (app) {
   });
 
   app.get("/profile", isAuthenticated, function (req, res) {
-      //findUser
-      res.render("profile", {});
-    
+    console.log(req.user);
+      res.render("profile", {user: req.user});
   });
 }
