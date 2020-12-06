@@ -31,7 +31,10 @@ module.exports = function (app) {
   });
 
   app.get("/profile", isAuthenticated, function (req, res) {
-
     res.render("profile", { user: req.user });
+  });
+
+  app.get("/results/:school", isAuthenticated, function (req, res){
+    res.sendFile(path.join(__dirname, "..public/results.html", { search: req.params.school }));
   });
 }
