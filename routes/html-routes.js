@@ -3,7 +3,6 @@ var path = require("path");
 var exphbs = require("express-handlebars");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
-var db = require("../models");
 module.exports = function (app) {
 
   app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -32,7 +31,7 @@ module.exports = function (app) {
   });
 
   app.get("/profile", isAuthenticated, function (req, res) {
-    console.log(req.user);
-      res.render("profile", {user: req.user});
+
+    res.render("profile", { user: req.user });
   });
 }
