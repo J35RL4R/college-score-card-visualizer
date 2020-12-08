@@ -35,4 +35,8 @@ module.exports = function (app) {
     console.log(req.user);
       res.render("profile", {user: req.user});
   });
+
+  app.get("/resultsMockUp", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/resultsMockUp.html"));
+  });
 }

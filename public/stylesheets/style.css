@@ -8,3 +8,18 @@ form.login {
   border-width: thin;
   padding: 20px;
 }
+
+body {
+  background-color: #f8f9fa;
+}
+
+.border-left-info {
+  border-left: #17a2b8;
+  border-left-style: solid;
+  padding: 25px;
+}
+
+.text-xs {
+  text-size-adjust: small;
+  font-weight: bold;
+}
