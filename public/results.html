@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
     <link href="stylesheets/style.css" rel="stylesheet">
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
     <title>Visulizer Results</title>
   </head>
 
@@ -17,111 +19,93 @@
           <a class="navbar-brand" href="/logout">
             Logout
           </a>
+          <a class="navbar-brand" href="/profile">
+            Profile
+          </a>
         </div>
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/profile">
-              Profile
-            </a>
-          </div>
       </div>
     </nav>
     <div class="jumbotron text-center">
-      <h1 class="display-4"><span class="school-name"></span></h1>
-      <h2>Dashboard</h2>
-      <p class="lead"><span class="school-site"></span> School Website?</p>
+      <h1 class="display-4">Dashboard<span class="school-name"></span></h1>
+      <p class="lead"><span class="school-site"></span></p>
       <hr class="my-4">
       <sup><button type="button" id="save-button" class="btn btn-success">Save Search!</button></sup>
   </div>
-  <div class="row">
+  <div class="row dash-row">
       <div class="col-md-3">
-        <div class="card border-left-info">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="text-xs font-weight-bold text-uppercase">Location Type:</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="locale"></span></div>
+        <div class="card border-left-info shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body left-padding">
+            <div class="row mini-dash-row">
+              <div class="text-info font-weight-bold text-uppercase">Location Type:</div>
+            </div>
+            <div class="row mini-dash-row">
+              <div class="h5 font-weight-bold text-secondary text-uppercase"><span class="locale"></span></div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card border-left-info">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="text-xs font-weight-bold text-uppercase">Avg Price:</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="average-price"></span></div>
+        <div class="card border-left-info shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body left-padding">
+            <div class="row mini-dash-row">
+              <div class="text-info font-weight-bold text-uppercase">Average Annual Price:</div>
+            </div>
+            <div class="row mini-dash-row">
+              <div class="h5 font-weight-bold text-secondary text-uppercase"><span class="average-price"></span></div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card border-left-info">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="text-xs font-weight-bold text-uppercase">Completion-rate:</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="completion-rate"></span></div>
+        <div class="card border-left-info shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body left-padding">
+            <div class="row mini-dash-row">
+              <div class="text-info font-weight-bold text-uppercase">Completion Rate:</div>
+            </div>
+            <div class="row mini-dash-row">
+              <div class="h5 font-weight-bold text-secondary text-uppercase"><span class="completion-rate"></span></div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="card border-left-info">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="text-xs font-weight-bold text-uppercase">Avg Debt:</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"><span class="average-debt"></span></div>
+        <div class="card border-left-info shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body left-padding">
+            <div class="row mini-dash-row">
+              <div class="text-info font-weight-bold text-uppercase">Average Overall Admissions Rate:</div>
+            </div>
+            <div class="row mini-dash-row">
+              <div class="h5 font-weight-bold text-secondary text-uppercase"><span class="admissions-rate"></span></div>
             </div>
           </div>
         </div>
       </div>
   </div>
-
-  <!-- <div class="row">
-    <div class="chart">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+          Comparison of Debt to Income after graduation
+        </div>
+        <div class="card-body">
+          <canvas id="myChart" width="600" height="600"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+          Top 5 academic programs
+        </div>
+        <div class="card-body">
+          <canvas id="myChart2" width="1000" height="1000"></canvas>
+        </div>
+      </div>
     </div>
   </div>
-  <canvas id="myChart" width="400" height="400"></canvas>
-  <script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  }); -->
-  <!-- </script> -->
-
-
+</div>
+  
 
     <!-- Optional JavaScript; choose one of the two! -->
 
