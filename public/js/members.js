@@ -15,7 +15,7 @@ $(document).ready(function() {
     $.get("results/:school", function(data){
       
     }).then(function(data){
-      window.location.replace("/results/:school")
+      window.location.replace("/results/"+ school)
     }).catch(function(err){
       console.log(err);
     })
