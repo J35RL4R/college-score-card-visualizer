@@ -1,10 +1,11 @@
-$(() => {
+$(document).ready(function() {
+  let url = (window.location.href);
+  console.log(url);
+  let schoolName = url.substring(30);
 
-  $("#search-input").click((event) => {
-      event.preventDefault();
-      let schoolName = $("#input").val().split(" ").join("%20");
-      findSchool(schoolName);
-    });
+  console.log(schoolName);
+  findSchool(schoolName);
+
 
   function findSchool(schoolName) {
 
@@ -106,7 +107,6 @@ $(() => {
           console.log(sortedDegreeArray[0].credential.title);
           console.log(sortedDegreeArray[0].title);
         });
-
   }
 });
 // classes so far:
@@ -116,4 +116,4 @@ $(() => {
 //completion-rate
 //average-price
 //average-debt
-//average-income
+//average
