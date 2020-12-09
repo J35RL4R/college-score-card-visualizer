@@ -106,9 +106,79 @@ $(document).ready(function() {
           console.log(sortedDegreeArray[0].counts.ipeds_awards2);
           console.log(sortedDegreeArray[0].credential.title);
           console.log(sortedDegreeArray[0].title);
+
+          let ctx = document.getElementById('myChart').getContext('2d');
+          let myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: ['Average Debt', 'Average Income After 6 Years'],
+                  datasets: [{
+                      label: 'Dollar Amount:',
+                      data: [ avgDebt, avgIncome ],
+                      backgroundColor: [
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(75, 192, 192, 1)'
+                      ],
+                      borderColor: [
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(75, 192, 192, 1)',
+                      ],
+                      borderWidth: 1
+                  }]
+              },
+              options: {
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero: true
+                          }
+                      }]
+                  }
+              }
+          }); 
+          let ctx2 = document.getElementById('myChart2').getContext('2d');
+          let myChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: [sortedDegreeArray[0].title, sortedDegreeArray[1].title, sortedDegreeArray[2].title, sortedDegreeArray[3].title, sortedDegreeArray[4].title,],
+                datasets: [{
+                    label: 'Dollar Amount:',
+                    data: [ sortedDegreeArray[0].counts.ipeds_awards2, sortedDegreeArray[1].counts.ipeds_awards2, sortedDegreeArray[2].counts.ipeds_awards2,sortedDegreeArray[3].counts.ipeds_awards2,sortedDegreeArray[4].counts.ipeds_awards2, ],
+                     backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
         });
   }
 });
+
+
+
 // classes so far:
 //school-name
 //school-site

@@ -19,7 +19,24 @@ body {
   padding: 25px;
 }
 
-.text-xs {
-  text-size-adjust: small;
-  font-weight: bold;
+.text-info {
+  text-decoration-color: #17a2b8;
+}
+
+.left-padding {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+}
+
+.dash-row {
+  padding: 15px;
+}
+
+.mini-dash-row {
+  padding-bottom: 5px;
+}
+
+.text-secondary {
+  text-decoration-color: #858796;
 }
