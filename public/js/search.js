@@ -72,12 +72,12 @@ $(document).ready(function() {
           console.log(response.results[0]["latest.completion.completion_rate_4yr_200nt_pooled"]);
           let instCompRate = response.results[0]["latest.completion.completion_rate_4yr_200nt_pooled"];
           // converting from decimal to percentage
-          var option = {
+          let percent = {
             style: 'percent'
           
           };
-          var formatter = new Intl.NumberFormat("en-US", option);
-          var percentInstRate = formatter.format(instCompRate);
+          let formatter = new Intl.NumberFormat("en-US", percent);
+          let percentInstRate = formatter.format(instCompRate);
           let instCompRateAppend = $("<p>");
           instCompRateAppend.text(percentInstRate);
           $(".completion-rate").append(instCompRateAppend);
@@ -86,13 +86,13 @@ $(document).ready(function() {
           console.log(response.results[0]["latest.cost.avg_net_price.overall"]);
           //converting to dollar amount
           let avgNetPrice = response.results[0]["latest.cost.avg_net_price.overall"];
-          var USD = {
+          let USD = {
             style: "currency",
             currency: "USD"
           
           };
-          var usdFormatter = new Intl.NumberFormat("en-US", USD);
-          var dollarNetPrice = usdFormatter.format(avgNetPrice);
+          let usdFormatter = new Intl.NumberFormat("en-US", USD);
+          let dollarNetPrice = usdFormatter.format(avgNetPrice);
           let avgPriceAppend = $("<p>");
           avgPriceAppend.text(dollarNetPrice);
           $(".average-price").append(avgPriceAppend);
@@ -103,18 +103,15 @@ $(document).ready(function() {
           let avgDebtAppend = $("<p>");
           avgDebtAppend.text(avgDebt);
           $(".average-debt").append(avgDebtAppend);
-
+          
           //append overall admissions rate
           console.log(response.results[0]["latest.admissions.admission_rate.overall"]);
           let allAdmissions = response.results[0]["latest.admissions.admission_rate.overall"]
-          var option = {
-            style: 'percent'
           
-          };
-          var adminFormatter = new Intl.NumberFormat("en-US", option);
-          var percentInstRate = adminFormatter.format(allAdmissions);
+          let adminFormatter = new Intl.NumberFormat("en-US", percent);
+          let percentAdminRate = adminFormatter.format(allAdmissions);
           let instAdminAppend = $("<p>");
-          instAdminAppend.text(percentInstRate);
+          instAdminAppend.text(percentAdminRate);
           $(".admissions-rate").append(instAdminAppend);
 
           //append average income after x years
@@ -161,6 +158,9 @@ $(document).ready(function() {
                   }]
               },
               options: {
+                legend: {
+                  display: false
+                },
                   scales: {
                       yAxes: [{
                           ticks: {
@@ -200,6 +200,9 @@ $(document).ready(function() {
                 }]
             },
             options: {
+              legend: {
+                display: false
+              },
                 scales: {
                     yAxes: [{
                         ticks: {

@@ -85,23 +85,35 @@
   </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-          Comparison of Debt to Income after graduation
+    <div class="col-md-8">
+      <div class="col-md-6">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+            Comparison of Debt to Income after graduation
+          </div>
+          <div class="card-body">
+            <canvas id="myChart" width="400" height="400"></canvas>
+          </div>
         </div>
-        <div class="card-body">
-          <canvas id="myChart" width="600" height="600"></canvas>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+            Top 5 academic programs
+          </div>
+          <div class="card-body">
+            <canvas id="myChart2" width="400" height="400"></canvas>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-          Top 5 academic programs
+        Top 15 Degree Programs by Award Rate
         </div>
         <div class="card-body">
-          <canvas id="myChart2" width="1000" height="1000"></canvas>
+          <div class="top-program-data"></div>
         </div>
       </div>
     </div>
