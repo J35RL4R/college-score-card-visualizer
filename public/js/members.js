@@ -8,19 +8,20 @@ $(document).ready(function() {
     $(".member-name").text(data.email);
   });
 
-  // searchSubmit.on("submit", function(event){
-  //   event.preventDefault();
-  //   let school = {
-  //     school: searchInput.val().trim()
-  //   };
-  // searchSchool(school);
-  // });
+  searchSubmit.on("click", function(event){
+    event.preventDefault();
+    let school = searchInput.val().trim();
 
-  // function searchSchool(school){
-  //   $.get("search/"+school, function(data){
-  //     console.log(data);
-  //   });
-  // }
+    $.get("results/:school", function(data){
+      
+    }).then(function(data){
+      window.location.replace("/results/:school")
+    }).catch(function(err){
+      console.log(err);
+    })
+  });
+
+
 });
 
 
