@@ -26,6 +26,16 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/save", function(req, res){
+    console.log(req.user);
+    db.saveSearch.create({
+      school: req.body.school,
+      UserId: req.user.id 
+    }).then(function(){
+      res.json(req.body.school);
+    })
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
