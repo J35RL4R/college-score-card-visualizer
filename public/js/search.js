@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   function findSchool(schoolName) {
 
-      var cscAPI = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=" + schoolName + "&fields=id,school.name,school.locale,location.lat,location.lon,school.school_url,latest.programs.cip_4_digit.counts.ipeds_awards2,latest.programs.cip_4_digit.title,latest.programs.cip_4_digit.credential,latest.cost.avg_net_price.overall,latest.completion.completion_rate_4yr_200nt_pooled,latest.aid.median_debt.completers.overall,latest.earnings.6_yrs_after_entry.median&api_key=hDvhnFr1dwbR1ItiqY6TL9Epf3Isbcd1QHHZq9Sb";
+      var cscAPI = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=" + schoolName + "&fields=id,school.name,school.locale,location.lat,location.lon,school.school_url,latest.programs.cip_4_digit.counts.ipeds_awards2,latest.programs.cip_4_digit.title,latest.programs.cip_4_digit.credential,latest.cost.avg_net_price.overall,latest.completion.completion_rate_4yr_200nt_pooled,latest.aid.median_debt.completers.overall,latest.earnings.6_yrs_after_entry.median,latest.admissions.admission_rate.overall&api_key=hDvhnFr1dwbR1ItiqY6TL9Epf3Isbcd1QHHZq9Sb";
 
       console.log(cscAPI);
       console.log(schoolName);
@@ -71,15 +71,30 @@ $(document).ready(function() {
           //append the average completion rate of the school
           console.log(response.results[0]["latest.completion.completion_rate_4yr_200nt_pooled"]);
           let instCompRate = response.results[0]["latest.completion.completion_rate_4yr_200nt_pooled"];
+          // converting from decimal to percentage
+          var option = {
+            style: 'percent'
+          
+          };
+          var formatter = new Intl.NumberFormat("en-US", option);
+          var percentInstRate = formatter.format(instCompRate);
           let instCompRateAppend = $("<p>");
-          instCompRateAppend.text(instCompRate);
+          instCompRateAppend.text(percentInstRate);
           $(".completion-rate").append(instCompRateAppend);
 
           // append average tuition and fees
           console.log(response.results[0]["latest.cost.avg_net_price.overall"]);
+          //converting to dollar amount
           let avgNetPrice = response.results[0]["latest.cost.avg_net_price.overall"];
+          var USD = {
+            style: "currency",
+            currency: "USD"
+          
+          };
+          var usdFormatter = new Intl.NumberFormat("en-US", USD);
+          var dollarNetPrice = usdFormatter.format(avgNetPrice);
           let avgPriceAppend = $("<p>");
-          avgPriceAppend.text(avgNetPrice);
+          avgPriceAppend.text(dollarNetPrice);
           $(".average-price").append(avgPriceAppend);
 
           // append average debt after graduation
@@ -88,6 +103,19 @@ $(document).ready(function() {
           let avgDebtAppend = $("<p>");
           avgDebtAppend.text(avgDebt);
           $(".average-debt").append(avgDebtAppend);
+
+          //append overall admissions rate
+          console.log(response.results[0]["latest.admissions.admission_rate.overall"]);
+          let allAdmissions = response.results[0]["latest.admissions.admission_rate.overall"]
+          var option = {
+            style: 'percent'
+          
+          };
+          var adminFormatter = new Intl.NumberFormat("en-US", option);
+          var percentInstRate = adminFormatter.format(allAdmissions);
+          let instAdminAppend = $("<p>");
+          instAdminAppend.text(percentInstRate);
+          $(".admissions-rate").append(instAdminAppend);
 
           //append average income after x years
           console.log(response.results[0]["latest.earnings.6_yrs_after_entry.median"]);
@@ -106,14 +134,20 @@ $(document).ready(function() {
           console.log(sortedDegreeArray[0].counts.ipeds_awards2);
           console.log(sortedDegreeArray[0].credential.title);
           console.log(sortedDegreeArray[0].title);
+          //formatting Top Degree Programs
+          let chartFormDegree1 =  sortedDegreeArray[0].credential.title.concat(" in ", sortedDegreeArray[0].title);
+          let chartFormDegree2 =  sortedDegreeArray[1].credential.title.concat(" in ", sortedDegreeArray[1].title);
+          let chartFormDegree3 =  sortedDegreeArray[2].credential.title.concat(" in ", sortedDegreeArray[2].title);
+          let chartFormDegree4 =  sortedDegreeArray[3].credential.title.concat(" in ", sortedDegreeArray[3].title);
+          let chartFormDegree5 =  sortedDegreeArray[4].credential.title.concat(" in ", sortedDegreeArray[4].title);
 
           let ctx = document.getElementById('myChart').getContext('2d');
           let myChart = new Chart(ctx, {
               type: 'bar',
               data: {
-                  labels: ['Average Debt', 'Average Income After 6 Years'],
+                  labels: ['Average Debt After Completion', 'Average Income 6 Years After Completion'],
                   datasets: [{
-                      label: 'Dollar Amount:',
+                      label: '',
                       data: [ avgDebt, avgIncome ],
                       backgroundColor: [
                           'rgba(255, 99, 132, 1)',
@@ -130,8 +164,10 @@ $(document).ready(function() {
                   scales: {
                       yAxes: [{
                           ticks: {
-                              beginAtZero: true
+                            callback: function(value, index, values) {
+                              return '$' + value;
                           }
+                        }
                       }]
                   }
               }
@@ -140,7 +176,7 @@ $(document).ready(function() {
           let myChart2 = new Chart(ctx2, {
             type: 'pie',
             data: {
-                labels: [sortedDegreeArray[0].title, sortedDegreeArray[1].title, sortedDegreeArray[2].title, sortedDegreeArray[3].title, sortedDegreeArray[4].title,],
+                labels: [chartFormDegree1, chartFormDegree2, chartFormDegree3, chartFormDegree4, chartFormDegree5,],
                 datasets: [{
                     label: 'Dollar Amount:',
                     data: [ sortedDegreeArray[0].counts.ipeds_awards2, sortedDegreeArray[1].counts.ipeds_awards2, sortedDegreeArray[2].counts.ipeds_awards2,sortedDegreeArray[3].counts.ipeds_awards2,sortedDegreeArray[4].counts.ipeds_awards2, ],
@@ -167,7 +203,8 @@ $(document).ready(function() {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            callback: function() {return ""},
+                            backdropColor: "rgba(0, 0, 0, 0)"
                         }
                     }]
                 }
