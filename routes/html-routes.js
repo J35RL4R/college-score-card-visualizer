@@ -36,6 +36,7 @@ module.exports = function (app) {
       let schools = [];
       for(i=0;i<results[0].saveSearches.length;i++){
         let school = { 
+          id:   results[0].saveSearches[i].dataValues.id,
           site: results[0].saveSearches[i].dataValues.school,
           name: results[0].saveSearches[i].dataValues.school.substring(30).split("%20").join(" ")  
         }
@@ -44,15 +45,6 @@ module.exports = function (app) {
       console.log(schools);
       res.render("profile", { user: req.user, searches: schools });
     }) 
-    
-    // saveSearch {
-    //   dataValues: {
-    //     id: 1,
-    //     school: 'http://localhost:8080/results/Hampshire%20College',
-    //     createdAt: 2020-12-10T01:31:43.000Z,
-    //     updatedAt: 2020-12-10T01:31:43.000Z,
-    //     UserId: 1
-    //   },
 
   });
 

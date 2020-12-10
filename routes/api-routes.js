@@ -36,6 +36,16 @@ module.exports = function(app) {
     })
   });
 
+  app.get("/api/delete/:id", function(req, res){
+    db.saveSearch.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(){
+      res.redirect("/profile");
+    })
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
