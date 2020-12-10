@@ -15,3 +15,7 @@ $(document).ready(function () {
         });
     }
 });
+function GetMap()
+{
+    var map = new Microsoft.Maps.Map('#myMap');
+}
