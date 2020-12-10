@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   function findSchool(schoolName) {
 
-      var cscAPI = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=" + schoolName + "&fields=id,school.name,school.locale,location.lat,location.lon,school.school_url,latest.programs.cip_4_digit.counts.ipeds_awards2,latest.programs.cip_4_digit.title,latest.programs.cip_4_digit.credential,latest.cost.avg_net_price.overall,latest.completion.completion_rate_4yr_200nt_pooled,latest.aid.median_debt.completers.overall,latest.earnings.6_yrs_after_entry.median,latest.admissions.admission_rate.overall&api_key=hDvhnFr1dwbR1ItiqY6TL9Epf3Isbcd1QHHZq9Sb";
+      let cscAPI = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=" + schoolName + "&fields=id,school.name,school.locale,location.lat,location.lon,school.school_url,latest.programs.cip_4_digit.counts.ipeds_awards2,latest.programs.cip_4_digit.title,latest.programs.cip_4_digit.credential,latest.cost.avg_net_price.overall,latest.completion.completion_rate_4yr_200nt_pooled,latest.aid.median_debt.completers.overall,latest.earnings.6_yrs_after_entry.median,latest.admissions.admission_rate.overall&api_key=hDvhnFr1dwbR1ItiqY6TL9Epf3Isbcd1QHHZq9Sb";
 
       console.log(cscAPI);
       console.log(schoolName);
@@ -131,7 +131,8 @@ $(document).ready(function() {
           console.log(sortedDegreeArray[0].counts.ipeds_awards2);
           console.log(sortedDegreeArray[0].credential.title);
           console.log(sortedDegreeArray[0].title);
-          //formatting Top Degree Programs
+          
+          //formatting Top Degree Programs for pie chart
           let chartFormDegree1 =  sortedDegreeArray[0].credential.title.concat(" in ", sortedDegreeArray[0].title);
           let chartFormDegree2 =  sortedDegreeArray[1].credential.title.concat(" in ", sortedDegreeArray[1].title);
           let chartFormDegree3 =  sortedDegreeArray[2].credential.title.concat(" in ", sortedDegreeArray[2].title);
