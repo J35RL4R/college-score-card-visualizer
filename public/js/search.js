@@ -1,8 +1,10 @@
+let lat;
+let lon;
 $(document).ready(function () {
   let url = (window.location.href);
   console.log(url);
   let schoolName = url.substring(30);
-
+  
   console.log(schoolName);
   findSchool(schoolName);
 
@@ -19,6 +21,8 @@ $(document).ready(function () {
       method: "GET"
     }).then((response) => {
       console.log(response);
+      lat = response.results[0]["location.lat"];
+      lon = response.results[0]["location.lon"]
       //after response I want to:
       //append school name 
       console.log(response.results[0]["school.name"]);
@@ -212,7 +216,7 @@ $(document).ready(function () {
       });
     });
   }
-});
+})
 
 
 

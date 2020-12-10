@@ -15,7 +15,14 @@ $(document).ready(function () {
         });
     }
 });
+
+
+
 function GetMap()
 {
-    var map = new Microsoft.Maps.Map('#myMap');
+    console.log(lat);
+    var map = new Microsoft.Maps.Map('#myMap', {
+            navigationBarMode: Microsoft.Maps.NavigationBarMode.compact,
+            center: new Microsoft.Maps.Location(lat, lon),
+        });
 }
