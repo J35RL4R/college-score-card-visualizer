@@ -22,32 +22,32 @@
 </div>
 <div class="container">
     <div class="row">
-        
+
         <div class="card">
             <h4 class="card-header header">
                 {{user.email}}'s Previous Searches:
             </h4>
-            <div class="card-body">                  
-                     
-                   {{#each searches}}                                
-                    <li class="list-group-item">
-                        <div class="row text-justify">
-                            <div class="col-sm-8">
-                                <h5 class="card-title">{{name}} </h5>
-                            </div>
-                            <div class="col-sm-4">
-                                <a href="{{site}}" class="btn btn-primary">View Results</a>
-                            </div>
+            <div class="card-body">
+
+                {{#each searches}}
+                <li class="list-group-item">
+                    <div class="row text-justify">
+                        <div class="col-sm-8">
+                            <h5 class="card-title">{{name}} </h5>
                         </div>
-                    </li>
-                    {{/each}}
+                        <div class="col-sm-2">
+                            <a href="{{site}}" class="btn btn-primary">View Results</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="/api/delete/{{id}}" id="delete-button" class="btn btn-warning">Delete</a>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
                 </ul>
-                
+
             </div>
 
         </div>
     </div>
 </div>
-
-
-
