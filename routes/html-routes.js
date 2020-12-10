@@ -32,9 +32,28 @@ module.exports = function (app) {
   app.get("/profile", isAuthenticated, function (req, res) {   
     db.User.findAll({
       include: [db.saveSearch]
-    }).then(function(saveSearch){
-      res.render("profile", { user: req.user, searches: saveSearch });
-    })    
+    }).then(function(results){
+      let schools = [];
+      for(i=0;i<results[0].saveSearches.length;i++){
+        let school = { 
+          site: results[0].saveSearches[i].dataValues.school,
+          name: results[0].saveSearches[i].dataValues.school.substring(30).split("%20").join(" ")  
+        }
+        schools.push(school);
+      }
+      console.log(schools);
+      res.render("profile", { user: req.user, searches: schools });
+    }) 
+    
+    // saveSearch {
+    //   dataValues: {
+    //     id: 1,
+    //     school: 'http://localhost:8080/results/Hampshire%20College',
+    //     createdAt: 2020-12-10T01:31:43.000Z,
+    //     updatedAt: 2020-12-10T01:31:43.000Z,
+    //     UserId: 1
+    //   },
+
   });
 
   app.get("/results/:school", isAuthenticated, function (req, res){

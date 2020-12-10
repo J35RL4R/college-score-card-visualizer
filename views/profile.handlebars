@@ -27,32 +27,20 @@
             <h4 class="card-header header">
                 {{user.email}}'s Previous Searches:
             </h4>
-            <div class="card-body">
-            
-                <ul class="list-group list-group-flush">
+            <div class="card-body">                  
+                     
+                   {{#each searches}}                                
                     <li class="list-group-item">
                         <div class="row text-justify">
                             <div class="col-sm-8">
-                                <h5 class="card-title"> LAST SEARCHED ITEM GOES HERE </h5>
+                                <h5 class="card-title">{{name}} </h5>
                             </div>
                             <div class="col-sm-4">
-                                <a href="#" class="btn btn-primary">View Results</a>
-                            </div>
-                        </div>
-                    </li>                   
-                    {{!-- below is tbd once we have search data saved in database    
-                   {{#each savedSearchArray}}                                
-                    <li class="list-group-item">
-                        <div class="row text-justify">
-                            <div class="col-sm-8">
-                                <h5 class="card-title"> {{arrayItem}}LAST SEARCHED ITEM GOES HERE </h5>
-                            </div>
-                            <div class="col-sm-4">
-                                <a href="#" class="btn btn-primary">View Results</a>
+                                <a href="{{site}}" class="btn btn-primary">View Results</a>
                             </div>
                         </div>
                     </li>
-                    {{/each}} --}}
+                    {{/each}}
                 </ul>
                 
             </div>
