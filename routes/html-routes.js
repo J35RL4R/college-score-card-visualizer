@@ -3,8 +3,9 @@ var path = require("path");
 var exphbs = require("express-handlebars");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
-module.exports = function (app) {
 
+module.exports = function (app) {
+  var db = require("../models")
   app.engine("handlebars", exphbs({ defaultLayout: "main" }));
   app.set("view engine", "handlebars");
 
@@ -24,14 +25,35 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function (req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/profile", isAuthenticated, function (req, res) {
-    res.render("profile", { user: req.user });
+  app.get("/profile", isAuthenticated, function (req, res) {   
+    db.User.findAll({
+      include: [db.saveSearch]
+    }).then(function(results){
+      let schools = [];
+      for(i=0;i<results[0].saveSearches.length;i++){
+        let school = { 
+          site: results[0].saveSearches[i].dataValues.school,
+          name: results[0].saveSearches[i].dataValues.school.substring(30).split("%20").join(" ")  
+        }
+        schools.push(school);
+      }
+      console.log(schools);
+      res.render("profile", { user: req.user, searches: schools });
+    }) 
+    
+    // saveSearch {
+    //   dataValues: {
+    //     id: 1,
+    //     school: 'http://localhost:8080/results/Hampshire%20College',
+    //     createdAt: 2020-12-10T01:31:43.000Z,
+    //     updatedAt: 2020-12-10T01:31:43.000Z,
+    //     UserId: 1
+    //   },
+
   });
 
   app.get("/results/:school", isAuthenticated, function (req, res){
