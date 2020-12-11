@@ -16,8 +16,6 @@ $(document).ready(function () {
     }
 });
 
-
-
 function GetMap() {
     console.log(lat);
     console.log(lon);
