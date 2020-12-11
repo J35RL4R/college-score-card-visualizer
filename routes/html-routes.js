@@ -38,7 +38,7 @@ module.exports = function (app) {
         let school = { 
           id:   results[0].saveSearches[i].dataValues.id,
           site: results[0].saveSearches[i].dataValues.school,
-          name: results[0].saveSearches[i].dataValues.school.substring(30).split("%20").join(" ")  
+          name: results[0].saveSearches[i].dataValues.school.search.split("%20").join(" ")  
         }
         schools.push(school);
       }

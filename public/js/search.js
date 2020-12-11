@@ -3,9 +3,9 @@ $(document).ready(function () {
   console.log(url);
   let schoolName;
   if (url.includes("heroku")) {
-    schoolName = url.substring(30);
-  } else {
     schoolName = url.substring(51);
+  } else {
+    schoolName = url.substring(30);
   }
 
 
