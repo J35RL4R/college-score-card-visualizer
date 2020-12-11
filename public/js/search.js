@@ -132,7 +132,26 @@ $(document).ready(function() {
           console.log(sortedDegreeArray[0].counts.ipeds_awards2);
           console.log(sortedDegreeArray[0].credential.title);
           console.log(sortedDegreeArray[0].title);
-          
+          //table for top programs
+          //define data array
+let tabledata = [
+  {Program:sortedDegreeArray[0].title,  Level:sortedDegreeArray[0].credential.title, awards:sortedDegreeArray[0].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[1].title,  Level:sortedDegreeArray[1].credential.title, awards:sortedDegreeArray[1].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[2].title,  Level:sortedDegreeArray[2].credential.title, awards:sortedDegreeArray[2].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[3].title,  Level:sortedDegreeArray[3].credential.title, awards:sortedDegreeArray[3].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[4].title,  Level:sortedDegreeArray[4].credential.title, awards:sortedDegreeArray[4].counts.ipeds_awards2}, 
+  {Program:sortedDegreeArray[5].title,  Level:sortedDegreeArray[5].credential.title, awards:sortedDegreeArray[5].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[6].title,  Level:sortedDegreeArray[6].credential.title, awards:sortedDegreeArray[6].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[7].title,  Level:sortedDegreeArray[7].credential.title, awards:sortedDegreeArray[7].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[8].title,  Level:sortedDegreeArray[8].credential.title, awards:sortedDegreeArray[8].counts.ipeds_awards2},
+  {Program:sortedDegreeArray[9].title,  Level:sortedDegreeArray[9].credential.title, awards:sortedDegreeArray[9].counts.ipeds_awards2}
+];
+
+//initialize table
+let table = new Tabulator("#top-programs-table", {
+  data:tabledata, //assign data to table
+  autoColumns:true, //create columns from data field names
+});         
           //formatting Top Degree Programs for pie chart
           let chartFormDegree1 =  sortedDegreeArray[0].credential.title.concat(" in ", sortedDegreeArray[0].title);
           let chartFormDegree2 =  sortedDegreeArray[1].credential.title.concat(" in ", sortedDegreeArray[1].title);
