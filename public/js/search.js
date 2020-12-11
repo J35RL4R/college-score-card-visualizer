@@ -4,8 +4,14 @@ let name;
 $(document).ready(function () {
   let url = (window.location.href);
   console.log(url);
-  let schoolName = url.substring(30);
+  let schoolName;
+  if (url.includes("heroku")){
+    schoolName = url.substring(51);
+  } else {
+    let schoolName = url.substring(30);
+  }
   
+
   console.log(schoolName);
   findSchool(schoolName);
 
