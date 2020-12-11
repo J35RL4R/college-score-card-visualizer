@@ -33,12 +33,20 @@ module.exports = function (app) {
     db.User.findAll({
       include: [db.saveSearch]
     }).then(function(results){
+      let schoolName = [];
+      for(let i=0;i<results[0].saveSearches.length;i++){
+      if (results[0].saveSearches[i].dataValues.school.includes("heroku")){
+        schoolName.push(results[0].saveSearches[i].dataValues.school.substring(51));
+      } else {
+        schoolName.push(results[0].saveSearches[i].dataValues.school.substring(30));
+      }
+    }
       let schools = [];
-      for(i=0;i<results[0].saveSearches.length;i++){
+      for(let i=0;i<results[0].saveSearches.length;i++){
         let school = { 
           id:   results[0].saveSearches[i].dataValues.id,
           site: results[0].saveSearches[i].dataValues.school,
-          name: results[0].saveSearches[i].dataValues.school.search.split("%20").join(" ")  
+          name: schoolName[i].split("%20").join(" ")  
         }
         schools.push(school);
       }
