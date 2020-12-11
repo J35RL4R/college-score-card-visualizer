@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(() => {
     let url = (window.location.href);
     console.log(url);
@@ -7,12 +6,6 @@ $(document).ready(() => {
     } else {
       schoolName = url.substring(30);
     }
-=======
-$(document).ready(function() {
-  let url = (window.location.href);
-  console.log(url);
-  let schoolName = url.substring(30);
->>>>>>> e08c40bf3293d0806548fe17c5a683e266e91464
 
   console.log(schoolName);
   findSchool(schoolName);
