@@ -1,7 +1,11 @@
-$(document).ready(function() {
-  let url = (window.location.href);
-  console.log(url);
-  let schoolName = url.substring(30);
+$(document).ready(() => {
+    let url = (window.location.href);
+    console.log(url);
+    if (url.includes("heroku")) {
+      schoolName = url.substring(51);
+    } else {
+      schoolName = url.substring(30);
+    }
 
   console.log(schoolName);
   findSchool(schoolName);
