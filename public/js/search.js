@@ -18,7 +18,8 @@ $(document).ready(function() {
           url: cscAPI,
           method: "GET"
       }).then((response) => {
-          console.log(response);
+        
+        console.log(response);
           //after response I want to:
           //append school name 
           console.log(response.results[0]["school.name"]);
