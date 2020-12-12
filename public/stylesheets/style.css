@@ -20,6 +20,14 @@ body {
   background-color: #659dbd;
 }
 
+.results-background {
+  background-color: #f8fafe;
+}
+
+.dash {
+  background-color: #9CBED3;
+}
+
 .border-left-info {
   border-left: #17a2b8;
   border-left-style: solid;
@@ -37,7 +45,19 @@ body {
 }
 
 .dash-row {
-  padding: 15px;
+  padding: 20px;
+}
+
+.graph-row {
+  padding: 5px;
+}
+
+.pad-right {
+  padding-right: 30px;
+}
+
+.pad-left {
+  padding-left: 30px;
 }
 
 .mini-dash-row {
