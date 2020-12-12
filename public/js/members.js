@@ -5,7 +5,7 @@ $(document).ready(function() {
   var searchSubmit = $("#search-submit")
 
   $.get("/api/user_data").then(function(data) {
-    $(".member-name").text(data.email);
+    $(".member-name").text(data.name);
   });
   searchSubmit.on("click", function(event){
     event.preventDefault();
