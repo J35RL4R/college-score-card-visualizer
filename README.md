@@ -23,13 +23,16 @@ College Scorecard Visualizer is an application allowing users to search for coll
 npm install
 
 ## Images
-[![Screen Shot of Template](Screen-Shots/Capture.PNG)]
+Landing Page:
+![](https://i.imgur.com/L8Co4YN.png)
+Dashboard View:
+![](https://i.imgur.com/5jKqk9X.png)
 
 ## Contributions
 This project is a collaboration between Claire Vita, Jesse Larsen, and Deirdre Cruice. 
 
 ## Questions
 Questions can be directed to the team members via our contact information below:
-* [GitHub.com/clairevita] (https://github.com/clairevita) or clairej.vita@gmail.com
-* [GitHub.com/J35RL4R] (https://github.com/J35RL4R) or larsenj732@gmail.com
-* [GitHub.com/dmcc789] (https://github.com/dmcc789) or dmcruice@gmail.com 
+* [GitHub.com/clairevita](https://github.com/clairevita) or clairej.vita@gmail.com
+* [GitHub.com/J35RL4R](https://github.com/J35RL4R) or larsenj732@gmail.com
+* [GitHub.com/dmcc789](https://github.com/dmcc789) or dmcruice@gmail.com 
