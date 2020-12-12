@@ -15,6 +15,22 @@
     <title>Visulizer Results</title>
   </head>
 
+<<<<<<< HEAD
+  <body class="results-background">
+    <nav class="mb-0 navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/logout">
+            Logout
+          </a>
+          <a class="navbar-brand" href="/profile">
+            Profile
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron text-center dash">
+=======
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">College Scorecard Visualization App</a>
@@ -32,12 +48,14 @@
       </ul>
   </nav>
     <div class="jumbotron text-center">
+>>>>>>> 8fa6b5688f5eb83f1d050f710e445a6e77faeaf9
       <h1 class="display-4">Dashboard<span class="school-name"></span></h1>
       <p class="lead"><span class="school-site"></span></p>
       <sup><button type="button" id="save-button" class="btn btn-success">Save Search!</button></sup>
       <hr class="my-4">
-  </div>
-  <div class="row dash-row">
+    </div>
+
+    <div class="row dash-row">
       <div class="col-md-3">
         <div class="card border-left-info shadow p-3 mb-5 bg-white rounded">
           <div class="card-body left-padding">
@@ -86,42 +104,23 @@
           </div>
         </div>
       </div>
-  </div>
- <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="col-md-6">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
-          <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-            Comparison of Debt to Income after graduation
-          </div>
-          <div class="card-body">
-            <canvas id="myChart" width="400" height="400"></canvas>
-          </div>
+    </div>
+
+
+  <div class="row dash-row">
+    <div class="col-md-6">
+      <div class="card border-left-secondary shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+          Comparison of Debt to Income after graduation
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
-          <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-            Top 5 academic programs
-          </div>
-          <div class="card-body">
-            <canvas id="myChart2" width="400" height="400"></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
-          <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-           Mid-Point Reported SAT Scores
-          </div>
-          <div class="card-body">
-            <canvas id="myChart3" width="400" height="400"></canvas>
-          </div>
+        <div class="card-body">
+          <canvas id="myChart" width="400" height="400"></canvas>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+
+
+    <div class="col-md-6">
       <div class="card shadow p-3 mb-5 bg-white rounded">
         <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
         Top 10 Degrees
@@ -132,7 +131,30 @@
       </div>
     </div>
   </div>
-</div>
+
+  <div class="row dash-row">
+    <div class="col-md-6">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+          Top 5 academic programs
+        </div>
+        <div class="card-body">
+          <canvas id="myChart2" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+         Mid-Point Reported SAT Scores
+        </div>
+        <div class="card-body">
+          <canvas id="myChart3" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
   
 
     <!-- Optional JavaScript; choose one of the two! -->
