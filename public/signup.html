@@ -22,31 +22,56 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
   </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputName1">Name</label>
-            <input type="name" class="form-control" id="name-input" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
+  <div class="container" style="height:300px">
+    <br>
+    <div class="h-100 row" style="justify-content: center;">
+      <div class="mb-4 col-sm-7">
+        <div class="w-100 jumbotron" style="height:100%;padding:40px;">
+
+          <h2 style="text-align: center;">Welcome to the College Scorecard Visualizer</h2>
+          <hr>
+          <br>
+          <h4>
+            <br>
+            This application is built with the help of the US Department of Education's College Scorecard API. This site
+            combines their dataset with visualization tools to help make this public information more accessible.
+            <br>
+            <br>
+            For more information regarding this dataset you can visit <a href="https://collegescorecard.ed.gov/data/"
+              target="_blank">The U.S. Department of Education's website</a>.
+            <br>
+            <br>
+            If you are a first time user, sign up using the form on this page!
+          </h4>
+
+        </div>
+      </div>
+
+      <div class="mb-4 col-md-5">
+        <div class="w-100 jumbotron" style="height:100%">
+          <h2>Sign Up Form</h2>
+          <form class="signup">
+            <div class="form-group">
+              <label for="exampleInputName1">Name</label>
+              <input type="name" class="form-control" id="name-input" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="email-input" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="password-input" placeholder="Password">
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <button type="submit" class="btn btn-default">Sign Up</button>
+          </form>
+          <br />
+          <p>Or log in <a href="/login">here</a></p>
+        </div>
       </div>
     </div>
   </div>
