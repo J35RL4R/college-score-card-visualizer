@@ -32,8 +32,12 @@ module.exports = function (app) {
 
   app.get("/profile", isAuthenticated, function (req, res) {   
     db.User.findAll({
+      where: {
+        id: req.user.id
+      },
       include: [db.saveSearch]
     }).then(function(results){
+      console.log(req);
       let schoolName = [];
       for(let i=0;i<results[0].saveSearches.length;i++){
       if (results[0].saveSearches[i].dataValues.school.includes("heroku")){
