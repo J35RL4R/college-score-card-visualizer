@@ -36,8 +36,9 @@ $(document).ready(() => {
           console.log(response.results[0]["school.school_url"]);
           let instWebsite = response.results[0]["school.school_url"];
           let instLink = $("<a>");
-          instLink.attr("href", instWebsite);
+          instLink.attr("href", "https://" + instWebsite);
           instLink.attr("alt", "Institution Website");
+          instLink.attr("target", "_blank");
           instLink.text("Visit Site");
           instLink.addClass("Link");
           $(".school-site").append(instLink);
