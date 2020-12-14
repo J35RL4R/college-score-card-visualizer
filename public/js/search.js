@@ -140,7 +140,7 @@ $(document).ready(() => {
       let degreeArray = response.results[0]["latest.programs.cip_4_digit"];
       degreeArray.sort((a, b) => parseFloat(b.counts.ipeds_awards2) - parseFloat(a.counts.ipeds_awards2));
       console.log(degreeArray);
-      let sortedDegreeArray = degreeArray.slice(0, 10);
+      let sortedDegreeArray = degreeArray.slice(0, 20);
       console.log(sortedDegreeArray);
       console.log(sortedDegreeArray[0].counts.ipeds_awards2);
       console.log(sortedDegreeArray[0].credential.title);
@@ -157,13 +157,24 @@ $(document).ready(() => {
         { Program: sortedDegreeArray[6].title, Level: sortedDegreeArray[6].credential.title, awards: sortedDegreeArray[6].counts.ipeds_awards2 },
         { Program: sortedDegreeArray[7].title, Level: sortedDegreeArray[7].credential.title, awards: sortedDegreeArray[7].counts.ipeds_awards2 },
         { Program: sortedDegreeArray[8].title, Level: sortedDegreeArray[8].credential.title, awards: sortedDegreeArray[8].counts.ipeds_awards2 },
-        { Program: sortedDegreeArray[9].title, Level: sortedDegreeArray[9].credential.title, awards: sortedDegreeArray[9].counts.ipeds_awards2 }
+        { Program: sortedDegreeArray[9].title, Level: sortedDegreeArray[9].credential.title, awards: sortedDegreeArray[9].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[10].title, Level: sortedDegreeArray[10].credential.title, awards: sortedDegreeArray[10].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[11].title, Level: sortedDegreeArray[11].credential.title, awards: sortedDegreeArray[11].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[12].title, Level: sortedDegreeArray[12].credential.title, awards: sortedDegreeArray[12].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[13].title, Level: sortedDegreeArray[13].credential.title, awards: sortedDegreeArray[13].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[14].title, Level: sortedDegreeArray[14].credential.title, awards: sortedDegreeArray[14].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[15].title, Level: sortedDegreeArray[15].credential.title, awards: sortedDegreeArray[15].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[16].title, Level: sortedDegreeArray[16].credential.title, awards: sortedDegreeArray[16].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[17].title, Level: sortedDegreeArray[17].credential.title, awards: sortedDegreeArray[17].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[18].title, Level: sortedDegreeArray[18].credential.title, awards: sortedDegreeArray[18].counts.ipeds_awards2 },
+        { Program: sortedDegreeArray[19].title, Level: sortedDegreeArray[19].credential.title, awards: sortedDegreeArray[19].counts.ipeds_awards2 },
       ];
 
       //initialize table
       let table = new Tabulator("#top-programs-table", {
         data: tabledata, //assign data to table
         autoColumns: true, //create columns from data field names
+        layout:"fitDataStretch",
       });
       //formatting Top Degree Programs for pie chart
       let chartFormDegree1 = sortedDegreeArray[0].credential.title.concat(" in ", sortedDegreeArray[0].title);
@@ -176,7 +187,7 @@ $(document).ready(() => {
       let myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Average Debt After Completion', 'Average Income 6 Years After Completion'],
+          labels: ['Avg Debt After', 'Avg Income 6 Yrs After'],
           datasets: [{
             label: '',
             data: [avgDebt, avgIncome],
